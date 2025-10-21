@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  sismografo:
+    build: .
+    container_name: sismografo-web
+    ports:
+      - "30125:80"
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+    environment:
+      SERIAL_PORT: "/dev/ttyUSB0"
+      BAUD_RATE: "9600"
+    restart: unless-stopped
